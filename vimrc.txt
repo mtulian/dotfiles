@@ -2,7 +2,6 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/$HOME/.local/bin/python2.7/site-packages/powerline/bindings/vim
 
 call vundle#rc()
 
@@ -10,6 +9,7 @@ call vundle#rc()
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/vundle'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'raimondi/delimitmate'
@@ -23,24 +23,17 @@ Plugin 'tpope/vim-surround'
 filetype plugin indent on
 
 " NerdTree config 'add shortkey to toggle'
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Syntastic config
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}%
-" set statusline+=%*
-
-" Always show statusline
-set laststatus=2
-
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-" Use 256 colours
-set t_Co=256
-
+"gruvbox config
 set background=dark
 colorscheme gruvbox
+
+set laststatus=2 "always show statusline"
+set tabstop=4 "show existing tab with 4 spaces width
+set shiftwidth=4 "when indenting with '>', use 4 spaces
+set expandtab "on pressing tab, insert 4 spaces
+set t_Co=256 "use 256 colours
+set number "insert line's number
+set incsearch "highlight while searching with / or ?
