@@ -12,9 +12,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'mxw/vim-jsx'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
-
 Plugin 'raimondi/delimitmate'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter' 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
@@ -33,9 +32,11 @@ set laststatus=2 "always show statusline"
 set tabstop=4 "show existing tab with 4 spaces width
 set shiftwidth=4 "when indenting with '>', use 4 spaces
 set expandtab "on pressing tab, insert 4 spaces
+set autoindent "copy the indentation from the previous line
 set t_Co=256 "use 256 colours
 set number "insert line's number
 set incsearch "highlight while searching with / or ?
+set hlsearch "hihglight searches by default"
 
 " vim airline config
 let g:airline_theme='simple' 
@@ -50,3 +51,13 @@ colorscheme gruvbox
 
 " vim-javascript config
 let g:javascript_enable_domhtmlcss = 1
+
+" syntastic config
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
