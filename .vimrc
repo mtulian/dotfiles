@@ -7,6 +7,7 @@ call vundle#rc()
 
 " Plugins
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'gmarik/vundle'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'mxw/vim-jsx'
@@ -28,7 +29,7 @@ filetype plugin indent on
 map <C-n> :NERDTreeTabsToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-set laststatus=2 "always show statusline"
+set laststatus=2 "always show statusline
 set tabstop=4 "show existing tab with 4 spaces width
 set shiftwidth=4 "when indenting with '>', use 4 spaces
 set expandtab "on pressing tab, insert 4 spaces
@@ -61,3 +62,28 @@ let g:javascript_enable_domhtmlcss = 1
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+" ctrlp config
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra' "local working directory when is invoked without starting directory"
+"To ignore files and directories
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$' "To ignore custom files and directories
+let g:ctrlp_user_command = 'find %s -type f' "Use a custom file listing command" 
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "To ignore files in gitignore"
+
+" End config
+
+" USEFUL INFO
+" fugitive 
+" :Gsplit, :Gvsplit, :Gtabedit....
+" :Gstatus
+" :Gblame brings up an interactive vertical split with git blame
+
+" surround
+" V + S + initial html tag
+" yssb wrap in ()
+" yss x where x is a (,{, [, wrap content in x
+" ds" to remove the delimeters entirely
+" cs"' to change " for '
