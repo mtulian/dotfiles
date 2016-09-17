@@ -1,11 +1,12 @@
 NombrePlugin  Autor
 atom-beautify Glavin001
 atom-material-ui  atom-material
-linter-jshint AtomLinter
 color-picker thomaslindstrom
 docblockr  nikhilkalige
 git-blame alexcorre
 git-plus akonwi
+ident-guide-improved harai
+linter-jshint AtomLinter
 language-babel  gandm
 minimap atom-minimap
 sort-lines atom
