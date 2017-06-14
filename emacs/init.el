@@ -1,42 +1,38 @@
-(package-initialize)
+;; Remove menu bar and scroll mode
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(desktop-save-mode)
 
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(setq-default custom-file (expand-file-name ".custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-(custom-set-variables
- '(package-selected-packages (quote (magit emmet-mode better-defaults js2-mode))))
-(custom-set-faces)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
 
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; auto start on any markup modes
-(add-hook 'css-mode-hook 'emmet-mode) ;; enable emmet for css abreviation
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package t))
 
-(column-number-mode 1)
+(setq-default
+   use-package-always-defer t
+   use-package-always-ensure t)
 
-;; Update backups directory
-(setq backup-directory-alist '(("" . "~/.emacs.d/backups")))
+(use-package company)
 
-;; Set default tab char's display width to 4 spaces
-(setq-default tab-width 4)
-(setq-default tab-always-indent t)
+(use-package better-defaults)
 
-;; Begin ORG_MODE_CONFIG
+(use-package js2-mode)
 
-;; make org mode allow eval of some langs
-(require 'org)
-(require 'ob)
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (js . t)))
-
-
-(setq-default org-confirm-babel-evaluate nil) ;; stop emacs asking for confirmation to eval
-(setq-default org-src-fontify-natively t) ;; turn on syntax coloring
-(add-to-list 'auto-mode-alist' '("\\.txt\\'" . org-mode)) ;; use automatically org-mode if .txt file is opened
-
-;; END ORG_MODE_CONFIG
+(use-package org
+  :ensure org-plus-contrib
+  :init
+  (add-hook 'org-mode-hook #'org-mode)
+  :config
+  (org-bullets-mode)
+  (setq-default
+   org-confirm-babel-evaluate nil
+   org-src-fontify-natively t))
