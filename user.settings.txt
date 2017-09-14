@@ -1,0 +1,16 @@
+{
+    "editor.minimap.enabled": false,
+    "explorer.autoReveal": false,
+    "extensions.ignoreRecommendations": false,
+    "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "Default Light+",
+    "workbench.iconTheme": "vs-seti",
+    "workbench.editor.enablePreview": false,
+    "window.menuBarVisibility": "default",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/public": true
+    },
+    "window.zoomLevel": 0
+}
