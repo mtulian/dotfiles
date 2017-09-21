@@ -1,7 +1,4 @@
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#rc()
 
@@ -9,10 +6,12 @@ call vundle#rc()
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'gmarik/vundle'
+Plugin 'godlygeek/tabular'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'mxw/vim-jsx'
 Plugin 'morhetz/gruvbox'
+Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'raimondi/delimitmate'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdcommenter' 
@@ -39,9 +38,11 @@ set t_Co=256 "use 256 colours
 set number "insert line's number
 set incsearch "highlight while searching with / or ?
 set hlsearch "hihglight searches by default"
+"set highlight Normal
+"set ctermfg dark
+"set ctermbg white
 
 " vim airline config
-let g:airline_theme='simple' 
 let g:airline#extensions#syntastic#enabled = 1
 
 " vim-jsx config
