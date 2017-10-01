@@ -49,8 +49,11 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:jsx_ext_required = 0
 
 " gruvbox config
-set background=dark
+let g:gruvbox_italic=0
+let g:gruvbox_termcolors=256
+let g:gruvbox_contrast_light="hard"
 colorscheme gruvbox
+set background=light
 
 " vim-javascript config
 let g:javascript_enable_domhtmlcss = 1
