@@ -1,9 +1,0 @@
-Color Picker
-Git blame
-markdownlint
-nunjucks
-react native storybook
-scala
-stylus
-vscode-icons
-vue 2 snippets
